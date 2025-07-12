@@ -1,3 +1,14 @@
+div.button-div {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 12%;
+  gap: 4px;
+}
+
+mat-form-field {
+}
+
 .oculto {
   display: none;
 }

@@ -1,2 +1,9 @@
-<button (click)="mostrar()">Mostrar</button>
-<p [class.oculto]="isShown">lista works!</p>
+<div class="button-div">
+  <button matButton="elevated" (click)="mostrar()">Mostrar</button>
+  <p [class.oculto]="isShown">lista works!</p>
+  <mat-form-field class="example-full-width">
+    <mat-label>Tarea</mat-label>
+    <input matInput />
+  </mat-form-field>
+  <button matButton="elevated">Agregar Tarea</button>
+</div>
