@@ -1,0 +1,18 @@
+.text-animation {
+  animation: tracking-in-contract 2s;
+  text-align: center;
+}
+
+@keyframes tracking-in-contract {
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
