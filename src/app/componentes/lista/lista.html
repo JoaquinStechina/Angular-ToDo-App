@@ -3,7 +3,30 @@
   <p [class.oculto]="isShown">lista works!</p>
   <mat-form-field class="example-full-width">
     <mat-label>Tarea</mat-label>
-    <input matInput />
+    <input matInput [(ngModel)]="nuevaTarea" />
   </mat-form-field>
-  <button matButton="elevated">Agregar Tarea</button>
+  <button matButton="elevated" (click)="agregarTarea()">Agregar Tarea</button>
 </div>
+<table mat-table [dataSource]="tareas" class="mat-elevation-z8">
+  <!-- Columna Posicion -->
+  <ng-container matColumnDef="posicion">
+    <th mat-header-cell *matHeaderCellDef>Posición</th>
+    <td mat-cell *matCellDef="let tarea">{{ tarea.posicion }}</td>
+  </ng-container>
+
+  <!-- Columna Nombre -->
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+    <td mat-cell *matCellDef="let tarea">{{ tarea.nombre }}</td>
+  </ng-container>
+
+  <!-- Columna Descripcion -->
+  <ng-container matColumnDef="descripcion">
+    <th mat-header-cell *matHeaderCellDef>Descripción</th>
+    <td mat-cell *matCellDef="let tarea">{{ tarea.descripcion }}</td>
+  </ng-container>
+
+  <!-- Encabezado y filas -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

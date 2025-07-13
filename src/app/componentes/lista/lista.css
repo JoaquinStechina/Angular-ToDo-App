@@ -4,9 +4,7 @@ div.button-div {
   position: absolute;
   left: 12%;
   gap: 4px;
-}
-
-mat-form-field {
+  padding-bottom: 16px;
 }
 
 .oculto {
