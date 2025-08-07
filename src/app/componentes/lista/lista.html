@@ -1,17 +1,14 @@
 <div class="button-div">
-  <button matButton="elevated" (click)="mostrar()">Mostrar</button>
   <mat-form-field class="example-full-width">
     <mat-label>Tarea</mat-label>
     <input matInput [(ngModel)]="nuevaTarea" />
   </mat-form-field>
   <button matButton="elevated" (click)="agregarTarea()">Agregar Tarea</button>
+  <button matButton="elevated" (click)="eliminarTareasSeleccionadas()">
+    Eliminar Seleccionadas
+  </button>
 </div>
-<table
-  mat-table
-  [class.oculto]="isShown"
-  [dataSource]="dataSource"
-  class="mat-elevation-z8"
->
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="select">
     <th mat-header-cell *matHeaderCellDef>
       <mat-checkbox

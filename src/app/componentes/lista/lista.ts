@@ -34,7 +34,6 @@ export class Lista implements OnInit {
   private tareas: Tarea[] = [];
   public dataSource = new MatTableDataSource<Tarea>(this.tareas);
   public selection = new SelectionModel<Tarea>(true, []);
-  public isShown: boolean = true;
 
   ngOnInit(): void {
     this.cargarTareas();
@@ -67,16 +66,21 @@ export class Lista implements OnInit {
     }`;
   }
 
+  public eliminarTareasSeleccionadas(): void {
+    this.tareas = this.tareas.filter(
+      (tarea) => !this.selection.isSelected(tarea)
+    );
+    this.dataSource.data = this.tareas;
+    localStorage.setItem('tareas', JSON.stringify(this.tareas));
+    this.selection.clear;
+  }
+
   private cargarTareas(): void {
     if (typeof window !== 'undefined' && localStorage) {
       const tareasGuardadas = localStorage.getItem('tareas');
       this.tareas = tareasGuardadas ? JSON.parse(tareasGuardadas) : [];
       this.dataSource.data = this.tareas;
     }
-  }
-
-  public mostrar(): void {
-    this.isShown = !this.isShown;
   }
 
   public agregarTarea(): void {
