@@ -29,7 +29,7 @@ export interface Tarea {
   styleUrl: './lista.css',
 })
 export class Lista implements OnInit {
-  public displayedColumns: string[] = ['select', 'posicion', 'nombre'];
+  public displayedColumns: string[] = ['select', 'nombre'];
   public nuevaTarea: string = '';
   private tareas: Tarea[] = [];
   public dataSource = new MatTableDataSource<Tarea>(this.tareas);
@@ -72,7 +72,7 @@ export class Lista implements OnInit {
     );
     this.dataSource.data = this.tareas;
     localStorage.setItem('tareas', JSON.stringify(this.tareas));
-    this.selection.clear;
+    this.selection.clear(true);
   }
 
   private cargarTareas(): void {
